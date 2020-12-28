@@ -1,0 +1,16 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, results = "asis", echo = FALSE, message = FALSE}
+library(dplyr)
+encft <- readr::read_csv(url('https://raw.githubusercontent.com/endomer/encftr/master/contributors.csv'), col_types = list())
+contributors <- dplyr::bind_rows(encft) %>% 
+  filter(!duplicated(login)) %>% 
+  mutate(
+    link = glue::glue("[\\@{login}](https://github.com/{login})"),
+    desc = ifelse(is.na(name), link, glue::glue("{name} ({link})"))
+  )
+cat(paste0(contributors$desc, collapse = ", "))
+```

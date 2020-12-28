@@ -1,23 +1,17 @@
-baseURL = "https://example.com"
+baseURL = "/"
 languageCode = "en-us"
-title = "Showcase Theme"
+title = "endomer"
 Paginate = 1000
 googleAnalytics = ""
 theme = "showcase-hugo-theme"
 disableKinds = ["taxonomy", "taxonomyTerm", "RSS"]
 
 [params]
-  author = "showcase"
-  description = "Minimal, one page, theme for showcasing your work"
-  message = ""
+  author = "endomer"
+  description = "Página web principal del proyecto Encuestas Dominicanas en R (endomer)"
+  message = "Es un proyecto que busca proveer herramientas útiles para trabajar con bases de datos de encuestas dominicanas en R."
   hideAutoMenu = false
 
-[[menu.main]]
-  name = "External"
-  url = "https://example.com"
-
 [social]
-  facebook = "https://facebook.com"
-  twitter = "https://twitter.com"
-  instagram = "https://instagram.com"
-  linkedin = "https://linkedin.com"
+  twitter = "https://twitter.com/search?q=%23endomer&src=typed_query"
+  github = "https://github.com/endomer"

@@ -9,8 +9,7 @@ disableKinds = ["taxonomy", "taxonomyTerm", "RSS"]
 [params]
   author = "endomer"
   description = "Página web principal del proyecto Encuestas Dominicanas en R (endomer)"
-  message = "Es un proyecto que busca proveer herramientas útiles para trabajar con bases de datos de encuestas dominicanas en R."
-  objetivo = "El objetivo principal es el de proveer la mayor cantidad de información posible relacionada con las encuestas. Así como funciones para calcular los principales indicadores que regularmente se calculan con dicha encuesta."
+  message = "Es un proyecto que busca proveer herramientas útiles para trabajar con bases de datos de encuestas dominicanas en R. El objetivo principal es el de proveer la mayor cantidad de información posible relacionada con las encuestas. Así como funciones para calcular los principales indicadores que regularmente se calculan con dicha encuesta. Todos los paquetes del ecosistema endomer te permiten utilizar etiquetas de datos en R. Además de que puedes visualizar estas etiquetas (diccionario) de forma interactiva. Mira en cada uno de los paquetes para ver que más se ofrece."
   hideAutoMenu = false
 
 [social]

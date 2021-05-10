@@ -3,14 +3,17 @@
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r, results = "asis", echo = FALSE, message = FALSE}
+```{r, results = "asis", echo = FALSE, message = FALSE, warning=FALSE}
 library(dplyr)
 encft <- readr::read_csv(url('https://raw.githubusercontent.com/endomer/encftr/master/contributors.csv'), col_types = list())
-contributors <- dplyr::bind_rows(encft) %>% 
+enhogar <- readr::read_csv(url('https://raw.githubusercontent.com/endomer/enhogar/main/contributors.csv'), col_types = list())
+enft <- readr::read_csv(url('https://raw.githubusercontent.com/endomer/enftr/main/contributors.csv'), col_types = list())
+endomer <- readr::read_csv(url('https://raw.githubusercontent.com/endomer/endomer/main/contributors.csv'), col_types = list())
+contributors <- dplyr::bind_rows(encft, enhogar, enft, endomer) %>% 
   filter(!duplicated(login)) %>% 
   mutate(
     link = glue::glue("[\\@{login}](https://github.com/{login})"),
     desc = ifelse(is.na(name), link, glue::glue("{name} ({link})"))
   )
-cat(paste0(contributors$desc, collapse = ", "))
+cat(paste0(contributors$desc, collapse = ", ")) 
 ```

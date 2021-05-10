@@ -10,6 +10,7 @@ disableKinds = ["taxonomy", "taxonomyTerm", "RSS"]
   author = "endomer"
   description = "Página web principal del proyecto Encuestas Dominicanas en R (endomer)"
   message = "Es un proyecto que busca proveer herramientas útiles para trabajar con bases de datos de encuestas dominicanas en R."
+  objetivo = "El objetivo principal es el de proveer la mayor cantidad de información posible relacionada con las encuestas. Así como funciones para calcular los principales indicadores que regularmente se calculan con dicha encuesta."
   hideAutoMenu = false
 
 [social]

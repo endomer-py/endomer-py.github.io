@@ -5,15 +5,23 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r, results = "asis", echo = FALSE, message = FALSE, warning=FALSE}
 library(dplyr)
-encft <- readr::read_csv(url('https://raw.githubusercontent.com/endomer/encftr/master/contributors.csv'), col_types = list())
-enhogar <- readr::read_csv(url('https://raw.githubusercontent.com/endomer/enhogar/main/contributors.csv'), col_types = list())
-enft <- readr::read_csv(url('https://raw.githubusercontent.com/endomer/enftr/main/contributors.csv'), col_types = list())
-endomer <- readr::read_csv(url('https://raw.githubusercontent.com/endomer/endomer/main/contributors.csv'), col_types = list())
-contributors <- dplyr::bind_rows(encft, enhogar, enft, endomer) %>% 
+
+encft <- readr::read_csv(url('https://raw.githubusercontent.com/endomer-py/encftr/master/contributors.csv'), col_types = list())
+enhogar <- readr::read_csv(url('https://raw.githubusercontent.com/endomer-py/enhogar/main/contributors.csv'), col_types = list())
+enft <- readr::read_csv(url('https://raw.githubusercontent.com/endomer-py/enftr/main/contributors.csv'), col_types = list())
+engih <- readr::read_csv(url('https://raw.githubusercontent.com/endomer-py/engihr/master/contributors.csv'), col_types = list())
+endomer <- readr::read_csv(url('https://raw.githubusercontent.com/endomer-py/endomer/main/contributors.csv'), col_types = list())
+
+contributors <- dplyr::bind_rows(encft, enhogar, enft, engih, endomer) %>% 
   filter(!duplicated(login)) %>% 
+  filter(!duplicated(name)) %>% 
   mutate(
-    link = glue::glue("[\\@{login}](https://github.com/{login})"),
+    link = if_else(
+      is.na(blog),
+      glue::glue("<a href=\"https://github.com/{login}\" target=\"_blank\">{login}</a>"),
+      glue::glue("<a href=\"http://{blog}\" target=\"_blank\">{blog}</a>")
+      ),
     desc = ifelse(is.na(name), link, glue::glue("{name} ({link})"))
   )
-cat(paste0(contributors$desc, collapse = ", ")) 
+readr::write_file(toString(pull(contributors, desc)), 'contributors.html')
 ```

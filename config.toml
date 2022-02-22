@@ -13,5 +13,5 @@ disableKinds = ["taxonomy", "taxonomyTerm", "RSS"]
   hideAutoMenu = false
 
 [social]
-  twitter = "https://twitter.com/search?q=%23endomer&src=typed_query"
-  github = "https://github.com/endomer"
+  twitter = "https://twitter.com/search?q=%23endomer+py&src=typed_query"
+  github = "https://github.com/endomer-py"
